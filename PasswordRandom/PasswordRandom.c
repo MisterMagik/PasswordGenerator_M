@@ -20,8 +20,8 @@ int main()
 	printf("#######################################\n");
 
 	printf("Select option: \n");
-	printf("1. Generate new password");
-	printf("2. Exit");
+	printf("1. Generate new password\n");
+	printf("2. Exit\n");
 	scanf_s("%d", &chooseUser);
 
 	if(chooseUser == 1)
