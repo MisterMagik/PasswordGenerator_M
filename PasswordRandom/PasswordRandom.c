@@ -28,6 +28,7 @@ int main()
 	
 	for(;;)
 	{
+
 		printf("\n#######################################\n");
 		printf("# Welcome to password generator %s #\n", APP_VERSION);
 		printf("#######################################\n");
@@ -40,6 +41,10 @@ int main()
 
 		if (chooseUser == 1)
 		{
+			if (!fopen("passwords.txt", "a"))
+			{
+				fP = fopen("passwords.txt", "a");
+			}
 			srand(time(NULL));
 			system("cls");
 			printf("Enter password length: ");
@@ -91,6 +96,7 @@ int main()
 		{
 			for (;;)
 			{
+				fclose(fP);
 				system("cls");
 				printf("\n#######################################\n");
 				printf("# Options                         %s #\n", APP_VERSION);
@@ -105,6 +111,28 @@ int main()
 
 				if (chooseUser == 1)
 				{
+					/*
+					if (remove("passwords.txt"))
+					{
+						
+					}
+					else
+					{
+						system("cls");
+						printf("Password.txt can't be deleted!");
+
+					}
+					*/
+
+					fP = fopen("passwords.txt", "w");
+					system("cls");
+					printf("Password.txt has been deleted! Creating new one");
+					for (int i = 0; i < 5; i++)
+					{
+						printf(".");
+					}
+					printf("\n");
+					system("pause");
 
 				}
 				else if (chooseUser == 2)
@@ -123,6 +151,8 @@ int main()
 		}
 		else if (chooseUser == 3)
 			break;
+
+		fclose(fP);
 	}
 
 	fclose(fP);
