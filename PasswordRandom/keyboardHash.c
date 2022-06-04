@@ -259,7 +259,7 @@ char hash(int numberToHash)
 			if (randomSizeLetter == 0)
 				return '`';
 			else
-				return '~';
+				return '`';
 			break;
 		}
 		case 28:
